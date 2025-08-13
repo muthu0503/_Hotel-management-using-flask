@@ -1,0 +1,84 @@
+body 
+{
+    background-image: url("../images/servicesBackground.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:center top;
+}
+
+#servicesTitle {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+    font-size: 45px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #0a0303; 
+    text-shadow: 2px 2px #ffffff;
+    background-size: cover;
+    background-position: center;
+  }
+
+.service {
+    position: relative; 
+}
+
+.service::before {
+    content: "";
+    display: block;
+    width: 200px;
+    height: 190px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    position: absolute;
+    bottom: -140px;
+    left: 50%;
+    transform: translateX(-50%) ; 
+    clip-path: inset(50px 0px 0px 0px);
+}
+
+.service img {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 110px;
+    height: 110px;
+    object-fit:fill;
+  }
+
+.services-grid {
+    padding: 5%;
+    display: grid;
+    grid-template-columns: repeat(2, 35%);
+    grid-column-gap: 380px;
+    row-gap: 200px;
+    justify-content: center;
+  }
+
+.services ul{
+    list-style: none;
+    padding: 20;
+    margin: 20;
+}
+
+.services h2 {
+    font-weight: 550;
+    font-size: 28px;
+    font-family: 'Source Sans Pro', sans-serif;
+    text-decoration: double;
+    color: #252525;
+    text-shadow: 1px 1px #ffffff;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.services p {
+    font-size: 20px;
+    font-family: 'Source Sans Pro', sans-serif;
+    margin-top: 10px;
+    line-height: 1.5;
+    color: #555555;
+  }
+
