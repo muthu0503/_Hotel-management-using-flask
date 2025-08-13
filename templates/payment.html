@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment</title>
+</head>
+<body>
+    <h1>Payment for Booking</h1>
+    <p>Room: {{ booking.room.room_number }}</p>
+    <p>Customer: {{ booking.customer_name }}</p>
+    <form method="POST">
+        <label for="payment_method">Choose payment method:</label><br>
+        <input type="radio" name="payment_method" value="card" required> Card<br>
+        <input type="radio" name="payment_method" value="upi"> UPI<br>
+        <input type="radio" name="payment_method" value="gpay"> GPay<br>
+        <button type="submit">Pay</button>
+    </form>
+</body>
+</html>

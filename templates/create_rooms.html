@@ -1,0 +1,116 @@
+
+
+<div class="text-headings-box container bg-secondary bg-gradient bg-opacity-75">
+    <h3 class="text-warning">CREATE NEW ROOM</h3>
+</div>
+
+
+<div class="admin-panel-box container border border-1 border-warning bg-light bg-gradient bg-opacity-75 shadow-lg mt-3">
+    <form class="p-1" action="{{ url_for('create_rooms') }}" method="post" id="form" enctype="multipart/form-data">
+        <div class="container-fluid d-flex justify-content-center ">
+
+                <div class="row mt-2">
+                    <div class="col-md-5 mt-4">
+                        <input type="text" class="form-control-lg shadow-lg border border-1 border-info was-validated" 
+                        required placeholder="Room type"
+                        id="room"
+                        name="room"
+                        autocomplete="off">
+                    </div>
+
+                    <div class="col-md-5 mt-2 justify-content-center">
+                        <input class="mt-2 shadow shadow-lg border border-1 border-info" type="number" max="9" Min="1" id="max_guests" name="max_guests" />
+                        <br>
+                        <label for="">Max guests</label>
+                        <br>
+                        <input class="mt-2 shadow shadow-lg border border-1 border-info" type="number" max="9" Min="1" id="min_guests" name="min_guests" />
+                        <br>
+                        <label for="">Min guests</label>
+                        <br>
+                        <input class="mt-2 shadow shadow-lg border border-1 border-info" type="number" max="9" Min="1" id="max_adults" name="max_adults"/>
+                        <br>
+                        <label for="">Max adults</label>
+                        <br>
+                        <input class="mt-2 shadow shadow-lg border border-1 border-info" type="number" max="9" Min="0" id="max_children" name="max_children" />
+                        <br>
+                        <label for="">Max children</label>
+                        <br>
+                        <input class="mt-2 shadow shadow-lg border border-1 border-info"  type="number" max="30" Min="1" id="total_rooms" name="total_rooms" />
+                        <br>
+                        <label for="">Total rooms of this type</label>
+                        <br>
+                    </div>
+
+                    <div class="col-md mt-5 m-lg-5">
+                        <input class="form-control-lg form-control-sm bg-secondary bg-gradient bg-opacity-75 opacity-75 border border-1 border-info" 
+                        id="formFileSm" 
+                        type="file"
+                        id="room_image"
+                        name="room_image"
+                        autocomplete="off"
+                        >
+                        <br>
+                        <label for="formFileLg" class="form-label">Upload image</label>
+                    </div>
+                </div>                                    
+            </div>
+                <p><label for="room_description">Room description</label></p>
+                <textarea id="room_description" name="room_description" rows="5" cols="50"></textarea>
+                    <br>
+        <input type="hidden" name="csrf_token" value = "{{ csrf_token() }}" /> 
+        <button class="btn btn-warning bg-gradient mb-5 text-dark mt-2 rounded shadow shadow-lg" type="submit">CREATE ROOM</button>         
+    </form>
+</div>
+
+{% if room_info|length > 0 %}
+
+<div class="text-headings-box container bg-secondary bg-gradient bg-opacity-75 mt-5">
+    <h3 class="text-warning">CREATED ROOMS</h3>
+</div>
+<div class="admin-panel-box row border border-1 border-warning mt-3 m-1 p-5 d-flex justify-content-evenly flex-wrap bg-light bg-opacity-75 shadow-lg text-dark">
+    {% for room in room_info %}
+        {% if room %}
+            <div class="col-md-3">
+                <div class="card d-flex">
+                    <div class="card-header">
+                        <strong>{{ room.name }}</strong>
+                    </div>
+                </div>
+            {% if room.room_image %} 
+                <div class="image-holder">
+                    <img style="height: 250px;" src="{{ url_for('static', filename='uploads/' + room.room_image ) }}"/>
+                </div>
+            {% elif not room.room_image %}
+                <div class="image-holder">
+                    <img style="height: 250px;" src="{{ url_for('static', filename='uploads/' + 'stock_room_image.jpeg' ) }}"/>
+                </div>
+            {% endif %}
+                <div class="card-header-text">
+                    <h5 href="harvard"><strong>Room information</strong></h5>
+                </div>
+                <div class="card body">
+                    <table>  
+                        <tr>
+                            <td><strong>Max Guests: </strong> {{ room.max_guests }} </td>
+                            <td><strong>Min Guests: </strong> {{ room.min_guests }} </td>
+                            <td><strong>Max Adults: </strong> {{ room.max_adults }}</td>
+                            <td><strong>Max Children: </strong>{{ room.max_children }}</td>
+                            <td><strong>Rooms of this type: </strong>{{ room.total_of_this_type }}</td>
+                            
+                        </tr>
+                    </table>
+                    <table>
+                    <tr>
+                        <td><strong>Room description: </strong>{{ room.room_description }}</td>
+                    </tr>
+                </table>
+                </div>
+                <form action="{{ url_for('delete_rooms') }}" method="post" enctype="multipart/form-data" id="form">
+                    <input type="hidden" name="csrf_token" value = "{{ csrf_token() }}" /> 
+                    <button class="btn btn-danger bg-gradient mb-3 text-light mt-3 rounded shadow shadow-lg" id="delete_room" value="{{ room.id }}" name="delete_room" type="submit">DELETE ROOM</button>
+                </form>      
+            </div>
+        {% endif %}
+    {% endfor %}      
+        </div>
+</div>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Our Hotel Services</title>
+        <link rel = "stylesheet" href = "{{ url_for('static', filename = 'css/services.css') }}">
+        <style>
+            .service {
+                background-color: rgba(255, 255, 255, 0.7);
+                border-radius: 35px;
+                padding: 20px;
+                margin-bottom: 50px;
+            }
+            body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Header styles */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+}
+
+.header-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 2rem;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+        </style>
+    </head>
+    <body>
+     <header>
+        <div class="header-container">
+            <h1>Welcome to Our Hotel service</h1>
+            <nav>
+                <ul>
+                      <li><a class="nav-link active" aria-current="page" href="/">Home</a></li>
+                      <li><a class="nav-link active" aria-current="page" href="/about">About</a></li>
+        <li><a class="nav-link active" aria-current="page" href="/service">Amenities</a></li>
+         <li><a class="nav-link active" aria-current="page" href="/room">Rooms</a></li>
+        <li><a class="nav-link active" aria-current="page" href="/dining">Dining</a></li>
+         <li><a class="nav-link active" aria-current="page" href="/events">Events</a></li>
+        <li><a class="nav-link active" aria-current="page" href="/gallery">Gallery</a></li>
+         <li><a class="nav-link active" aria-current="page" href="/">contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+        <div class="services">
+            
+            <h1 id="servicesTitle">Our Hotel Services</h1>
+            <div class="services-grid">
+                <div class="service">
+                    <img src="{{ url_for('static', filename = 'images/24-hour-clock.png') }}" style="position:absolute; bottom: -120px;">
+                    <h2>24-hour working website</h2>
+                    <p>The hotel's website is available 24/7 and is user-friendly. It provides guests with all the necessary information to plan their stay, including details about rooms, amenities, services, and local attractions. Guests can make reservations, 
+                        check availability, and manage bookings directly on the website. Additionally, the website has a FAQ section and contact form to help guests find answers quickly and easily.</p>
+                </div>
+                <div class="service">
+                    <img src="{{ url_for('static', filename = 'images/bedroom.png') }}" style="width: 135px; height: 135px; position:absolute; bottom: -130px;">
+                    <h2>Room Service</h2>
+                    <p>Indulge in the convenience of our room service and enjoy delicious meals and drinks in the comfort of your own room. Our menu offers a variety of options, from breakfast to dinner and late-night snacks.
+                        Our housekeeping staff will visit your room every two days to make your bed, replace towels, and ensure that your room is clean and comfortable. If you need any additional amenities such as toiletries or extra pillows, don't hesitate to let us know.</p>
+                </div>
+                <div class="service">
+                    <img src="{{ url_for('static', filename = 'images/playground.png') }}" style="position:absolute; bottom: -110px;">
+                    <h2>Free Wi-Fi</h2>
+                    <p>Stay connected and productive during your stay with our hotel's free Wi-Fi service. Whether you need to check your email, browse the web, or stay in touch with friends and family, our high-speed Wi-Fi network is available throughout the hotel, 
+                        from the lobby to your room. </p>
+                </div>
+                <div class="service">
+                    <img src="{{ url_for('static', filename = 'images/swimming-pool.png') }}" style="position:absolute; bottom: -110px;">
+                    <h2>Swimming Pool</h2>
+                    <p>Our swimming pool is located on the third floor of our hotel, offering a convenient place to cool off and relax. The pool deck provides comfortable lounge chairs and umbrellas for a place to rest and take in the city views.
+                        We also offer clean towels, showers, and changing rooms to ensure your comfort.</p>
+                </div>
+                <div class="service">
+                    <img src="{{ url_for('static', filename = 'images/gym.png') }}" style="position:absolute; bottom: -120px;">
+                    <h2>Fitness Center</h2>
+                    <p>Stay fit and healthy during your stay with our hotel's fitness center, located on the second floor. While small, ur fitness center is equipped with a variety of cardio machines, free weights, and strength-training equipment, making it easy to stay on top of your fitness routine.
+                        Our fitness center is open 24/7, so you can work out at any time that's convenient for you.
+                        </p>
+                </div>
+                <div class="service">
+                    <img src="{{ url_for('static', filename = 'images/washing-machine.png') }}" style="width: 100px; height: 100px; position:absolute; bottom: -110px;">
+                    <h2>Laundry Room</h2>
+                    <p>We understand the importance of keeping your attire in impeccable condition, and that's why we provide a convenient laundry room for our guests. Our laundry room, located on the lower level of the hotel, offers state-of-the-art 
+                        washers and dryers that are available for your use at any time of the day.</p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+

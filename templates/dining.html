@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Dining Menu</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+
+
+    /* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and general font settings */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Header styles */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 2rem;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+/* Menu section styles */
+.menu {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.menu h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+.food-items {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.food-item {
+    background-color: #fff;
+    width: 250px;
+    margin: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.food-item img {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ddd;
+}
+
+.food-item h3 {
+    font-size: 1.5rem;
+    margin: 15px 0;
+    color: #333;
+}
+
+.food-item .description {
+    font-size: 1rem;
+    margin: 10px 0;
+    color: #777;
+}
+
+.food-item .price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 10px 0;
+    color: #333;
+}
+
+.food-item .order-btn {
+    background-color: #FF6600;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.food-item .order-btn:hover {
+    background-color: #e65c00;
+}
+
+/* Footer styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    margin-top: 50px;
+}
+ </style>
+
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>Welcome to Our Hotel Dining</h1>
+            <nav>
+                <ul>
+                      <li><a class="nav-link active" aria-current="page" href="/">Home</a></li>
+                    <li><a class="nav-link active" aria-current="page" href="/about">About</a></li>
+        <li><a class="nav-link active" aria-current="page" href="/service">Amenities</a></li>
+         <li><a class="nav-link active" aria-current="page" href="/room">Rooms</a></li>
+        <li><a class="nav-link active" aria-current="page" href="/dining">Dining</a></li>
+         <li><a class="nav-link active" aria-current="page" href="/events">Events</a></li>
+        <li><a class="nav-link active" aria-current="page" href="/gallery">Gallery</a></li>
+         <li><a class="nav-link active" aria-current="page" href="/">contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="menu">
+        <h2>Our Delicious Menu</h2>
+
+        <div class="food-items">
+            <!-- Dish 1 -->
+            <div class="food-item">
+                <img src="/static/images/f11.jpg" alt="Food Item 1">
+                <h3>Grilled Salmon</h3>
+                <p class="description">Freshly grilled salmon served with a lemon butter sauce.</p>
+                <p class="price">$25.00</p>
+                <button class="order-btn">Order Now</button>
+            </div>
+
+            <!-- Dish 2 -->
+            <div class="food-item">
+                <img src="/static/images/f2.jpg" alt="Food Item 2">
+                <h3>Vegetable Salad</h3>
+                <p class="description">A healthy mix of fresh veggies with balsamic vinaigrette.</p>
+                <p class="price">$12.00</p>
+                <button class="order-btn">Order Now</button>
+            </div>
+
+            <!-- Dish 3 -->
+            <div class="food-item">
+                <img src="/static/images/f21.jpg" alt="Food Item 3">
+                <h3>Beef Steak</h3>
+                <p class="description">Juicy beef steak cooked to your preferred doneness with garlic mashed potatoes.</p>
+                <p class="price">$30.00</p>
+                <button class="order-btn">Order Now</button>
+            </div>
+
+            <!-- Dish 4 -->
+            <div class="food-item">
+                <img src="/static/images/f41.jpg" alt="Food Item 4">
+                <h3>Pasta Primavera</h3>
+                <p class="description">Pasta with fresh seasonal vegetables and a creamy Alfredo sauce.</p>
+                <p class="price">$18.00</p>
+                <button class="order-btn">Order Now</button>
+            </div>
+        </div>
+                <div class="category">
+            <h3>Biriyani</h3>
+            <div class="food-items">
+                <div class="food-item">
+                    <img src="/static/images/biriyani.jpg" alt="Chicken Biriyani">
+                    <h4>Chicken Biriyani</h4>
+                    <p class="description">A flavorful mix of fragrant rice and tender chicken with aromatic spices.</p>
+                    <p class="price">$15.00</p>
+                </div>
+                <div class="food-item">
+                    <img src="/static/images/veg_biriyani.jpg" alt="Veg Biriyani">
+                    <h4>Veg Biriyani</h4>
+                    <p class="description">A rich, spicy biriyani made with fresh vegetables and basmati rice.</p>
+                    <p class="price">$12.00</p>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Non-Veg Items Section -->
+        <div class="category">
+            <h3>Non-Veg Items</h3>
+            <div class="food-items">
+                <div class="food-item">
+                    <img src="/static/images/chicken_curry.jpg" alt="Chicken Curry">
+                    <h4>Chicken Curry</h4>
+                    <p class="description">Tender chicken cooked in a spicy and creamy curry sauce.</p>
+                    <p class="price">$18.00</p>
+                </div>
+                <div class="food-item">
+                    <img src="/static/images/fish_curry.jpg" alt="Fish Curry">
+                    <h4>Fish Curry</h4>
+                    <p class="description">Delicious fish cooked in a tangy and spicy curry sauce.</p>
+                    <p class="price">$20.00</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ice Cream Section -->
+        <div class="category">
+            <h3>Ice Cream</h3>
+            <div class="food-items">
+                <div class="food-item">
+                    <img src="/static/images/vanilla_ice_cream.jpg" alt="Vanilla Ice Cream">
+                    <h4>Vanilla Ice Cream</h4>
+                    <p class="description">Classic creamy vanilla ice cream with a smooth texture.</p>
+                    <p class="price">$5.00</p>
+                </div>
+                <div class="food-item">
+                    <img src="/static/images/chocolate_ice_cream.jpg" alt="Chocolate Ice Cream">
+                    <h4>Chocolate Ice Cream</h4>
+                    <p class="description">Rich and creamy chocolate ice cream, perfect for chocolate lovers.</p>
+                    <p class="price">$5.50</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Hotel Dining. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!-- templates/admin_dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        /* Logout Button Style */
+.logout-btn {
+    padding: 10px 20px;
+    background-color: #ff4d4d;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 20px;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.logout-btn:hover {
+    background-color: #ff1a1a;
+}
+
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <h1>Admin Dashboard</h1>
+
+        <!-- Logout Button -->
+        <a href="/" class="button logout-btn">Logout</a>
+
+        <div class="admin-section">
+            <h2>Rooms</h2>
+            <a href="{{ url_for('add_room') }}" class="button">Add Room</a>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Photo</th>
+                        <th>Room Type</th>
+                        <th>Price</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for room in rooms %}
+                        <tr>
+                            <td>{{ room.id }}</td>
+                            <td><img src="{{ room.photo }}" alt="Room Photo" class="room-photo"></td>
+                            <td>{{ room.room_type }}</td>
+                            <td>${{ room.price }}</td>
+                            <td>
+                                <a href="{{ url_for('delete_room', room_id=room.id) }}" class="button delete-btn">Delete</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="admin-section">
+            <h2>Bookings</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Guest Name</th>
+                        <th>Room</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for booking in bookings %}
+                        <tr>
+                            <td>{{ booking.guest_name }}</td>
+                            <td>{{ booking.room.room_type }}</td>
+                            <td>{{ booking.status }}</td>
+                            <td>
+                                {% if booking.status == 'Pending' %}
+                                    <a href="{{ url_for('confirm_booking', booking_id=booking.id) }}" class="button confirm-btn">Confirm</a>
+                                    <a href="{{ url_for('cancel_booking', booking_id=booking.id) }}" class="button cancel-btn">Cancel</a>
+                                {% endif %}
+                                <!-- Add a Delete button for bookings -->
+                                <a href="{{ url_for('delete_booking', booking_id=booking.id) }}" class="button delete-btn" onclick="return confirm('Are you sure you want to delete this booking?')">Delete</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
